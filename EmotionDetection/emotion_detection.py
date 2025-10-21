@@ -44,5 +44,14 @@ def emotion_detector(text_to_analyze):
             'sadness': sadness,
             'dominant_emotion': dominant_emotion
         }
+    elif response.status_code == 400:
+        return {
+            'anger': None,
+            'disgust': None,
+            'fear': None,
+            'joy': None,
+            'sadness': None,
+            'dominant_emotion': None
+        }
     else:
         return None

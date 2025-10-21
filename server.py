@@ -10,6 +10,8 @@ def detect_emotion():
         return jsonify({"error": "No text provided"}), 400
     
     result = emotion_detector(text_to_analyze)
+    if result.get('dominant_emotion') is None:
+        return jsonify({"error": "Invalid text! Please try again!"}), 400
     return jsonify(result)
 
 if __name__ == '__main__':
